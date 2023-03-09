@@ -72,7 +72,16 @@ Progressive-Tune 遵循 [Contributor Covenant](http://contributor-covenant.org/v
 ### 贡献者
 
 <!-- readme: collaborators,contributors -start -->
-
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/daoxuan233">
+            <img src="https://avatars.githubusercontent.com/u/102936237?v=4" width="100;" alt="daoxuan233"/>
+            <br />
+            <sub><b>DaoXuan</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: collaborators,contributors -end -->
 
 **_感谢以上参与项目的人_**
