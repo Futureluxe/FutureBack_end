@@ -56,13 +56,15 @@
 ## 维护者
 
 [@daoxuan233](https://github.com/daoxuan233)
+</br>
 [@951294416](https://github.com/951294416)
+</br>
 [@ice-chenyi](https://github.com/ice-chenyi)
 
 
 ## 如何贡献
 
-非常欢迎你的加入！[提一个 Issue](https://github.com/mason369/future/issues) 或者提交一个
+非常欢迎你的加入！[提一个 Issue](https://github.com/Futureluxe/FutureBack_end/issues) 或者提交一个
 Pull Request。
 
 Progressive-Tune 遵循 [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) 行为规范。
@@ -70,6 +72,7 @@ Progressive-Tune 遵循 [Contributor Covenant](http://contributor-covenant.org/v
 ### 贡献者
 
 <!-- readme: collaborators,contributors -start -->
+
 <!-- readme: collaborators,contributors -end -->
 
 **_感谢以上参与项目的人_**
@@ -90,23 +93,23 @@ Progressive-Tune 遵循 [Contributor Covenant](http://contributor-covenant.org/v
 
 ### 特别感谢：
 
-[IntelliJ WebStorm](https://zh.wikipedia.org/zh-hans/IntelliJ_IDEA) 是一款在各方面最大限度地提高开发人员生产力的 IDE，适用于前端平台语言。
+[IntelliJ_IDEA](https://www.jetbrains.com/zh-cn/idea/) 是一款在各方面最大限度地提高开发人员生产力的 IDE，适用于Java平台语言。
 
-<code><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/WebStorm_icon.png?_gl=1*10616q8*_ga*MTEwMzE4MDQwOS4xNjU0NzQ0NjIw*_ga_9J976DJZ68*MTY1NTA5NzcyOC4yLjEuMTY1NTA5ODE3Ni42MA..&_ga=2.237879491.294686240.1655097729-1103180409.1654744620" style="width:200px; "/></code>
+<code><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.png?_ga=2.177568869.1594575276.1678373380-1840121525.1678373377&_gl=1*jqpgqc*_ga*MTg0MDEyMTUyNS4xNjc4MzczMzc3*_ga_9J976DJZ68*MTY3ODM3MzM3Ny4xLjEuMTY3ODM3MzUwOS4wLjAuMA.." style="width:200px; "/></code>
 
-[Node.js](https://nodejs.org/en/) 对一些特殊用例进行优化，提供替代的 API，使得 V8 在非浏览器环境下运行得更好，V8 引擎执行 Javascript 的速度非常快，性能非常好，基于 Chrome
-JavaScript 运行时建立的平台， 用于方便地搭建响应速度快、易于扩展的网络应用。
+[Spring Boot](https://spring.io/)Spring Boot 是一个用于快速构建基于 Spring 框架的应用程序的工具。它通过自动配置和约定优于配置的原则，简化了 Spring 应用程序的开发流程。Spring Boot 可以快速地创建独立的、生产级别的 Spring 应用程序，而不需要过多的配置和样板代码。它还提供了一组开箱即用的功能，如嵌入式 Web 服务器、健康检查、安全性、监控和管理等。
 
-<code><img src="https://nodejs.org/static/images/logo.svg" style="width:200px; "/></code>
+通过 Spring Boot，开发人员可以更加专注于业务逻辑，而不是配置和部署问题。它还支持各种集成，包括 JPA、JDBC、NoSQL 数据库、消息队列、缓存等等。Spring Boot 还拥有一个庞大的社区，开发人员可以很容易地获取帮助和支持。总之，Spring Boot 是一个功能强大、易于使用、高效、可扩展的框架，可以让开发人员更加专注于业务，快速构建高质量的应用程序。
 
-[Visual Studio Code](https://code.visualstudio.com/)在 Windows、macOS 和 Linux 上运行的独立源代码编辑器。
-JavaScript 和 Web 开发人员的最佳选择，具有几乎可支持任何编程语言的扩展。
+<code><img src="https://4.bp.blogspot.com/-ou-a_Aa1t7A/W6IhNc3Q0gI/AAAAAAAAD6Y/pwh44arKiuM_NBqB1H7Pz4-7QhUxAgZkACLcBGAs/s1600/spring-boot-logo.png" style="width:200px; "/></code>
 
-<code><img src="https://visualstudio.microsoft.com/wp-content/uploads/2019/09/vs-code-responsive-01-1.png" style="width:200px; "/></code>
+[MySQL8.0](https://www.mysql.com/cn/)MySQL 8.0是一种流行的关系型数据库管理系统，是MySQL系列的最新版本。它是一个开源的、可靠的、高性能的数据库，广泛应用于Web应用程序、企业应用程序、云平台等各种场景。
 
-[Vue.js](https://cn.vuejs.org/)前端先进的渐进式 JavaScript 框架,易学易用，性能出色，适用场景丰富的 Web 前端框架。
+<code><img src="https://upload.wikimedia.org/wikipedia/zh/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png" style="width:200px; "/></code>
 
-<code><img src="https://cn.vuejs.org/logo.svg" style="width:200px; " /></code>
+[Redis](https://redis.io/)Redis以内存作为数据存储介质，可以实现超高速读写操作，同时支持将数据持久化到硬盘上，以便在重启后可以快速地恢复数据。此外，Redis还提供了许多高级功能，例如事务处理、Lua脚本、发布/订阅等，以及对分布式环境下的数据存储和缓存提供了完整的支持。
+
+<code><img src="https://w7.pngwing.com/pngs/540/594/png-transparent-redis-distributed-cache-go-database-caching-github-data-structure-redis-cache.png" style="width:200px; " /></code>
 
 ## 使用许可
 
