@@ -109,7 +109,7 @@ Progressive-Tune 遵循 [Contributor Covenant](http://contributor-covenant.org/v
 
 [Redis](https://redis.io/)Redis以内存作为数据存储介质，可以实现超高速读写操作，同时支持将数据持久化到硬盘上，以便在重启后可以快速地恢复数据。此外，Redis还提供了许多高级功能，例如事务处理、Lua脚本、发布/订阅等，以及对分布式环境下的数据存储和缓存提供了完整的支持。
 
-<code><img src="https://w7.pngwing.com/pngs/540/594/png-transparent-redis-distributed-cache-go-database-caching-github-data-structure-redis-cache.png" style="width:200px; " /></code>
+<code><img src="https://www.stackery.io/assets/images/posts/redis-cache-cluster-support/featured.svg" style="width:200px; " /></code>
 
 ## 使用许可
 
