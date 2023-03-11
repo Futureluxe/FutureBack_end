@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 配置 Spring Security 的授权规则和登录和登出的路径。
-     * @param http
+     * @param http Http 安全性
      * @throws Exception
      */
     @Override
@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * 配置身份认证方式，这里使用了一个简单的内存中的用户信息。
-     * @param auth
+     * @param auth 身份验证管理器生成器
      * @throws Exception
      */
     @Override
