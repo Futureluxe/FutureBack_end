@@ -1,5 +1,0 @@
-{
-  "outPath": "\\src\\main\\java\\doc" ,
-  "serverUrl": "http://{{server}}",
-  "coverOld": true
-}
