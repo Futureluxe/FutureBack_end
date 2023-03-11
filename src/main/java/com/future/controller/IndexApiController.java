@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexApiController {
     @PostMapping("/show")
     public String index(){
-        return "我是你爹";
+        return "AAAA";
     }
 }
