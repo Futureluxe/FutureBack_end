@@ -1,0 +1,17 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/future?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: ysp750421
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  tomcat:
+    uri-encoding: utf-8
+  port: 8080
