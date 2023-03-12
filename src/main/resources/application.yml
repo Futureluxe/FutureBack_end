@@ -9,6 +9,12 @@ spring:
     host: 127.0.0.1
     port: 6379
 
+  mail:
+    host: smtp.qq.com
+    username: 3119395617@qq.com
+    password: nwhoxxsuwhniddjj
+    default-encoding: utf-8
+
   datasource:
     url: jdbc:mysql://localhost:3306/future?characterEncoding=UTF-8&serverTimezone=UTC
     username: root

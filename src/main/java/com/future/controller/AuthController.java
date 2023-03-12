@@ -1,5 +1,6 @@
 package com.future.controller;
 
+import com.future.cache.RedisTokenRepository;
 import com.future.entity.resp.RestBean;
 import com.future.util.JwtTokenUtil;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,9 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+
+    @Resource
+    RedisTokenRepository tokenRepository;
 
     /**
      * 访问被拒绝

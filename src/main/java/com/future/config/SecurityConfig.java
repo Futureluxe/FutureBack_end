@@ -1,5 +1,7 @@
 package com.future.config;
 
+import com.future.cache.RedisTokenRepository;
+import com.future.service.AuthServiceImpl;
 import com.future.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +21,11 @@ import javax.annotation.Resource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Resource
+    AuthServiceImpl service;
+
+    @Resource
+    RedisTokenRepository repository;
 
     @Resource
     private UserDetailsService userDetailsService;
@@ -27,6 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .userDetailsService(service)
+                .passwordEncoder(new BCryptPasswordEncoder());
+        //这里使用SpringSecurity提供的BCryptPasswordEncoder
     }
 
     // 配置密码加密方式
@@ -66,6 +81,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf()
                 .disable()
+                /*.rememberMe()   //开启记住我功能
+                .rememberMeParameter("remember")  //登陆请求表单中需要携带的参数，如果携带，那么本次登陆会被记住
+                .tokenRepository(repository) */ //这里使用的是直接在内存中保存的TokenRepository实现
+        //TokenRepository有很多种实现，InMemoryTokenRepositoryImpl直接基于Map实现的，缺点就是占内存、服务器重启后记住我功能将失效
+        //后面我们还会讲解如何使用数据库来持久化保存Token信息
+        /*.tokenValiditySeconds(60*2)  //Token的有效时间（秒）默认为14天;单位 秒*/
         ;
+        //开启跨域访问
+        http.cors().disable();
+
     }
 }
