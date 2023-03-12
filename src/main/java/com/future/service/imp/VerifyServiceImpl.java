@@ -33,12 +33,12 @@ public class VerifyServiceImpl implements VerifyService {
     @Override
     public void sendVerifyCode(String mail) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setSubject("惠农商城-注册");
+        mailMessage.setSubject("Future-注册");
         String code = vCodeUtil.verifyCode();//随机数
         System.out.println("产生的code验证码："+code);
         //存储在缓存
-        template.opsForValue().set("loginVerify:code:"+mail,code+"",3, TimeUnit.MINUTES); //设置过期时间，3 mi
-        mailMessage.setText("验证码为："+code+"该验证码，在三分钟内有效，请及时注册使用；如果不是本人操作，请忽略！");
+        template.opsForValue().set("loginVerify:code:"+mail,code+"",10, TimeUnit.MINUTES); //设置过期时间，3 mi
+        mailMessage.setText("验证码为："+code+"该验证码，在10分钟内有效，请及时注册使用；如果不是本人操作，请忽略！");
         mailMessage.setTo(mail); //发送到对应的邮箱
         mailMessage.setFrom(from);
         sender.send(mailMessage);//发送邮件
@@ -53,6 +53,12 @@ public class VerifyServiceImpl implements VerifyService {
      */
     @Override
     public Boolean doVerify(String mail, String code) {
-        return null;
+        System.out.println("code验证码："+code);
+        String str = template.opsForValue().get("loginVerify:code:"+mail);
+        System.out.println("Redis验证码："+str);
+        if (str == null) return false;
+        if (!str.equals(code)) return false;
+        template.delete("verify:code:"+mail); //使用后在Redis中删除缓存
+        return true;
     }
 }

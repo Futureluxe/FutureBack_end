@@ -2,6 +2,7 @@ package com.future.controller;
 
 import com.future.cache.RedisTokenRepository;
 import com.future.entity.resp.RestBean;
+import com.future.service.VerifyService;
 import com.future.util.JwtTokenUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,9 @@ public class AuthController {
 
     @Resource
     RedisTokenRepository tokenRepository;
+
+    @Resource
+    VerifyService verifyService;
 
     /**
      * 访问被拒绝
@@ -87,5 +91,20 @@ public class AuthController {
     @GetMapping("/logout-success")
     public RestBean<String> logoutSuccess() {
         return new RestBean<>(200,"Logout Success");
+    }
+
+    /**
+     * 请求邮箱验证码
+     * @param email 邮箱地址
+     * @return {200,邮件发送成功;500,邮件发送失败}
+     */
+    public RestBean<Void> verifyCode(@RequestParam("email")String email){
+        try {
+            verifyService.sendVerifyCode(email);
+            return new RestBean<>(200,"邮件发送成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new RestBean<>(500,"邮件发送失败");
+        }
     }
 }
