@@ -2,6 +2,9 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  main:
+    allow-bean-definition-overriding: true
+
   redis:
     host: 127.0.0.1
     port: 6379

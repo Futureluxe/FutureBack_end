@@ -8,7 +8,27 @@ api.push({
 })
 api[0].list.push({
     order: '1',
-    desc: '',
+    desc: '访问被拒绝',
+});
+api[0].list.push({
+    order: '2',
+    desc: '用户登录',
+});
+api[0].list.push({
+    order: '3',
+    desc: '登录成功',
+});
+api[0].list.push({
+    order: '4',
+    desc: '登录失败',
+});
+api[0].list.push({
+    order: '5',
+    desc: '用户退出登录',
+});
+api[0].list.push({
+    order: '6',
+    desc: '退出登录成功',
 });
 document.onkeydown = keyDownSearch;
 function keyDownSearch(e) {

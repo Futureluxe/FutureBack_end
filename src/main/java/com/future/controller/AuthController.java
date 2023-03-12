@@ -1,9 +1,11 @@
 package com.future.controller;
 
 import com.future.entity.resp.RestBean;
+import com.future.util.JwtTokenUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +14,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
 
     /**
      * 访问被拒绝
@@ -25,11 +26,12 @@ public class AuthController {
     /**
      * 用户登录
      */
-    @PostMapping("/login")
+    @GetMapping("/login")
     public RestBean<String> login(@RequestParam("username") String username,
                                         @RequestParam("password") String password,
                                         HttpServletRequest request,
-                                        HttpServletResponse response) throws IOException {
+                                        HttpServletResponse response)
+            throws IOException {
         try {
             // 使用request.login()进行登录验证
             request.login(username, password);
@@ -39,7 +41,7 @@ public class AuthController {
         } catch (ServletException e) {
             // 登录失败，使用response.sendRedirect()进行页面跳转
             response.sendRedirect("/api/auth/login-failure");
-            return new RestBean<>(404,"Login Failed");
+            return new RestBean<>(404, "Login Failed");
         }
     }
 
