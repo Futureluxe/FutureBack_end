@@ -77,7 +77,10 @@
             <scope>runtime</scope>
             <!--JJwt Jackson 序列化和反序列化支持，可以将 JWT 对象转化为 JSON 或从 JSON 反序列化为 JWT 对象。-->
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
