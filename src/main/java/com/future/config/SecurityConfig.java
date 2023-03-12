@@ -16,19 +16,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/login").permitAll() //配置 `/login` 路径可以不需要身份认证就可以访问。
-                .anyRequest().authenticated()
+                .authorizeRequests()   //首先需要配置哪些请求会被拦截，哪些请求必须具有什么角色才能访问
+                .antMatchers("/auth/**").permitAll()
                 .and()
-                .formLogin() //配置表单登录
-                .loginPage("/login")
-                .permitAll()
+                .formLogin()
+                .loginPage("/auth/access-deny")//默认的登录页路径
+                .loginProcessingUrl("/auth/login")//处理登录请求的接口
+                /*.successHandler(this::onAuthenticationSuccess)*/
+                .successForwardUrl("/auth/login-success")
+                .failureForwardUrl("/auth/login-failure")
                 .and()
                 .logout()
-                .permitAll()
+                .logoutUrl("/auth/logout")
+                .logoutSuccessUrl("/auth/logout-success")
+                // 关闭CSRF
                 .and()
                 .csrf()
-                .disable();
+                .disable()
+        ;
     }
 
     /**
