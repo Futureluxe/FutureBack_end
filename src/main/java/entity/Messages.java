@@ -1,13 +1,13 @@
-package com.future.entity;
+package entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Date;
+import java.io.Serializable;
 
 /**
  * 消息表
@@ -41,11 +41,11 @@ public class Messages implements Serializable {
     /**
      * 消息创建时间
      */
-    private Date createdAt;
+    private Timestamp createdAt;
     /**
      * 最近一次更新时间
      */
-    private Date updatedAt;
+    private Timestamp updatedAt;
 
 }
 

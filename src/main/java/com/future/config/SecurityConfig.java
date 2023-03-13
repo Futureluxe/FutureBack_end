@@ -2,7 +2,6 @@ package com.future.config;
 
 import com.future.cache.RedisTokenRepository;
 import com.future.service.AuthServiceImpl;
-import com.future.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +9,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -28,12 +25,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     RedisTokenRepository repository;
 
     @Resource
-    private UserDetailsService userDetailsService;
+    private AuthServiceImpl userDetailsService;
 
     // 配置全局的用户认证信息
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(service).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -49,13 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
-    // 配置JWT令牌工具类
-    @Bean
-    public JwtTokenUtil jwtTokenUtil() {
-        return new JwtTokenUtil();
-    }
+    
     /**
      * 配置 Spring Security 的授权规则和登录和登出的路径。
      * @param http Http 安全性
@@ -81,12 +72,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf()
                 .disable()
-                /*.rememberMe()   //开启记住我功能
+                .rememberMe()   //开启记住我功能
                 .rememberMeParameter("remember")  //登陆请求表单中需要携带的参数，如果携带，那么本次登陆会被记住
-                .tokenRepository(repository) */ //这里使用的是直接在内存中保存的TokenRepository实现
+                .tokenRepository(repository)  //这里使用的是直接在内存中保存的TokenRepository实现
         //TokenRepository有很多种实现，InMemoryTokenRepositoryImpl直接基于Map实现的，缺点就是占内存、服务器重启后记住我功能将失效
         //后面我们还会讲解如何使用数据库来持久化保存Token信息
-        /*.tokenValiditySeconds(60*2)  //Token的有效时间（秒）默认为14天;单位 秒*/
+        .tokenValiditySeconds(60*2)  //Token的有效时间（秒）默认为14天;单位 秒
         ;
         //开启跨域访问
         http.cors().disable();

@@ -1,13 +1,7 @@
-package com.future.entity;
+package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
+import java.util.Date;
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Timestamp;
 
 /**
  * 用户表
@@ -16,10 +10,6 @@ import java.sql.Timestamp;
  * @author makejava
  * @since 2023-03-13 11:20:50
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Accessors(chain = true)
 public class Users implements Serializable {
     private static final long serialVersionUID = -98818195186813592L;
     /**
@@ -41,18 +31,14 @@ public class Users implements Serializable {
     /**
      * 用户创建时间
      */
-    private Timestamp createdAt;
+    private Object createdAt;
     /**
      * 最近一次更新时间
      */
-    private Timestamp updatedAt;
+    private Date updatedAt;
     /**
      * 用户角色
      */
     private String role;
-    /**
-     * 用户头像
-     */
-    private String img;
 }
 

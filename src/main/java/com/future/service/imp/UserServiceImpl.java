@@ -3,9 +3,11 @@ package com.future.service.imp;
 import com.future.entity.Users;
 import com.future.mapper.UserMapper;
 import com.future.service.UserService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Resource
