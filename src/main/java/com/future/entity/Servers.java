@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -21,6 +22,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class Servers implements Serializable {
+    @Serial
     private static final long serialVersionUID = 335936988371214489L;
     /**
      * 服务器ID，主键自增长
@@ -42,6 +44,16 @@ public class Servers implements Serializable {
      * 最近一次更新时间
      */
     private Timestamp updatedAt;
+
+    /**
+     * 状态
+     */
+    private String category;
+
+    /**
+     * 图片
+     */
+    private String image;
 
 }
 

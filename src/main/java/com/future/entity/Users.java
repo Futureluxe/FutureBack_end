@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -21,6 +22,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class Users implements Serializable {
+    @Serial
     private static final long serialVersionUID = -98818195186813592L;
     /**
      * 用户ID，主键自增长
