@@ -37,11 +37,11 @@ public class Servers implements Serializable {
     /**
      * 服务器创建时间
      */
-    private Date createdAt;
+    private Timestamp createdAt;
     /**
      * 最近一次更新时间
      */
-    private Date updatedAt;
+    private Timestamp updatedAt;
 
 }
 
