@@ -36,7 +36,7 @@ public class RedisTokenRepository implements PersistentTokenRepository {
     }
 
     @Override
-    public PersistentRememberMeToken getTokenForSeries(String seriesId) {
+    public PersistentRememberMeToken getTokenForSeries(String seriesId) { //这里直接返回，seriesId == username
         return this.getToken(seriesId);
     }
 

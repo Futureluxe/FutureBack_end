@@ -45,11 +45,22 @@ public class AuthController {
     }
 
     /**
+     * 发送邮箱接口
+     * @param email 邮箱
+     * @return 发送结果
+     */
+    @PostMapping("/email")
+    public RestBean<Void> sendEmail(@RequestParam("email") String email) {
+        verifyService.sendVerifyCode(email);
+        return new RestBean<>(200,"发送成功");
+    }
+
+    /**
      * 用户登录
      * @param username 用户名
      * @param password 密码
-     * @return
-     * @throws IOException
+     * @return 登录结果
+     * @throws IOException IO异常
      */
     @PostMapping("/login")
     public RestBean<PersistentRememberMeToken> login(@RequestParam(value = "username",required = false) String username,
@@ -74,14 +85,35 @@ public class AuthController {
     /**
      * 登录成功
      * @param username 用户名{后端传输，前端不用管}
-     * @return
+     * @return Users对象
      */
     @PostMapping("/login-success")
-    public RestBean<Users> loginSuccess(
-            @RequestParam("username") String username
+    public RestBean<PersistentRememberMeToken> loginSuccess(
+            @RequestParam("username") String username,
+            @RequestParam("mail") String mail,
+            @RequestParam("code") String code
     ) {
         Users nameExist = userService.isNameExist(username);
-        return new RestBean<>(200,"login success",nameExist);
+        // 登录成功后，将token存入redis
+        String token = UUID.randomUUID().toString(); // 生成token
+        // 获取用户名
+        Users user = userService.isNameExist(username); // 获取用户信息
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 时间格式化
+        String date = sdf.format(new Date()); // 获取当前时间
+        Timestamp timestamp = Timestamp.valueOf(date); // 转换为Timestamp类型
+        // 封装token
+        PersistentRememberMeToken persistentRememberMeToken = new PersistentRememberMeToken(
+                user.getUsername(), // 用户名
+                // 生成seriesId
+                UUID.randomUUID().toString().replace("-", ""),
+                token, // token
+                timestamp // 过期时间
+        );
+        repository.createNewToken(persistentRememberMeToken); // 存入redis
+        Boolean aBoolean = verifyService.doVerify(mail, code);
+        return aBoolean ?
+                new RestBean<>(200,"Login Success",persistentRememberMeToken)
+                : new RestBean<>(404,"Login Failed,VerifyCode Error");
     }
 
     /**
