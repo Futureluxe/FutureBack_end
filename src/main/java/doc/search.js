@@ -2,8 +2,8 @@ let api = [];
 api.push({
     alias: 'api',
     order: '1',
-    desc: '',
-    link: '',
+    desc: '认证控制器',
+    link: '认证控制器',
     list: []
 })
 api[0].list.push({
@@ -29,6 +29,33 @@ api[0].list.push({
 api[0].list.push({
     order: '6',
     desc: '退出登录成功',
+});
+api.push({
+    alias: 'ServersController',
+    order: '2',
+    desc: '服务器控制器',
+    link: '服务器控制器',
+    list: []
+})
+api[1].list.push({
+    order: '1',
+    desc: '添加服务器',
+});
+api[1].list.push({
+    order: '2',
+    desc: '根据用户id查询服务器',
+});
+api[1].list.push({
+    order: '3',
+    desc: '根据用户id修改服务器类型',
+});
+api[1].list.push({
+    order: '4',
+    desc: '加入服务器',
+});
+api[1].list.push({
+    order: '5',
+    desc: '退出服务器',
 });
 document.onkeydown = keyDownSearch;
 function keyDownSearch(e) {

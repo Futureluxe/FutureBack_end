@@ -19,6 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * 认证控制器
+ */
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -42,17 +45,6 @@ public class AuthController {
     @PostMapping("/access-deny")
     public RestBean<String> accessDeny() {
         return new RestBean<>(403,"访问被拒绝");
-    }
-
-    /**
-     * 发送邮箱接口
-     * @param email 邮箱
-     * @return 发送结果
-     */
-    @PostMapping("/email")
-    public RestBean<Void> sendEmail(@RequestParam("email") String email) {
-        verifyService.sendVerifyCode(email);
-        return new RestBean<>(200,"发送成功");
     }
 
     /**
