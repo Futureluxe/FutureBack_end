@@ -3,6 +3,8 @@ package com.future.service;
 import com.future.entity.Servers;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface ServerService {
     /**
@@ -17,7 +19,7 @@ public interface ServerService {
      * @param ownerId 服务器id
      * @return 服务器对象
      */
-    Servers getServerByOwnerId(Integer ownerId);
+    List<Servers> getServerByOwnerId(Integer ownerId);
 
     /**
      * 根据服务器id修改服务器类型

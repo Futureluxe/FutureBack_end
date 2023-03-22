@@ -5,6 +5,8 @@ import com.future.entity.Servers;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 @CacheNamespace(implementation = RedisMybatisCache.class)
 public interface ServersMapper {
@@ -33,7 +35,7 @@ public interface ServersMapper {
      * @return Servers
      */
     @Select("select * from servers where owner_id = #{ownerId}")
-    Servers selectServerByOwnerId(@Param("ownerId") Integer ownerId); // 通过用户id查询服务器
+    List<Servers> selectServerByOwnerId(@Param("ownerId") Integer ownerId); // 通过用户id查询服务器
 
     /**
      * 通过服务器id修改服务器,修改category
@@ -60,5 +62,7 @@ public interface ServersMapper {
      */
     @Update("update servers set name = #{name},category = #{category},img = #{img} where id = #{id}")
     Integer updateServer(Servers servers);
+
+
 
 }

@@ -7,6 +7,7 @@ import com.future.service.ServerService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ServerServiceImpl implements ServerService {
@@ -33,7 +34,7 @@ public class ServerServiceImpl implements ServerService {
      * @return 服务器对象
      */
     @Override
-    public Servers getServerByOwnerId(Integer ownerId) {
+    public List<Servers> getServerByOwnerId(Integer ownerId) {
         return serversMapper.selectServerByOwnerId(ownerId);
     }
 

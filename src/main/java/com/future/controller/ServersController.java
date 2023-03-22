@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * 服务器控制器
@@ -64,8 +65,8 @@ public class ServersController {
      * @return 返回服务器对象
      */
     @PostMapping("/getByOwnerId")
-    public RestBean<Servers> getServerByOwnerId(@RequestParam("owner_id") Integer ownerId){
-        Servers servers = serverService.getServerByOwnerId(ownerId);
+    public RestBean<List<Servers>> getServerByOwnerId(@RequestParam("owner_id") Integer ownerId){
+        List<Servers> servers = serverService.getServerByOwnerId(ownerId);
         return servers != null ?
                 new RestBean<>(200,"查询成功",servers)
                 :
