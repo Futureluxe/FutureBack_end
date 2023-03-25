@@ -46,7 +46,7 @@ public class PrivateMessagesController {
     /**
      * 获取用户的所有私信
      * @param userId 用户id
-     * @return
+     * @return 返回查询结果
      */
     @PostMapping("/getAllMessagesForUser")
     public RestBean<List<PrivateMessages>> getAllMessagesForUser(
