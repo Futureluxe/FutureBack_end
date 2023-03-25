@@ -9,7 +9,7 @@ import java.util.List;
 public interface PrivateMessagesService {
     /**
      * 获取所有的私信
-     * @param userId
+     * @param userId 用户id
      * @return 私信列表
      */
     public List<PrivateMessages> getAllMessagesForUser(Integer userId);
@@ -18,5 +18,5 @@ public interface PrivateMessagesService {
      * 发送私信
      * @param privateMessage 私信对象
      */
-    public void sendMessage(PrivateMessages privateMessage);
+    public Boolean sendMessage(PrivateMessages privateMessage);
 }

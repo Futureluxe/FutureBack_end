@@ -25,5 +25,5 @@ public interface PrivateMessagesMapper {
      * @param privateMessage 私信对象
      */
     @Insert("INSERT INTO private_messages (content, author_id, reception_id, created_at) VALUES (#{content}, #{authorId}, #{receptionId}, NOW())")
-    void sendMessage(PrivateMessages privateMessage);
+    Integer sendMessage(PrivateMessages privateMessage);
 }
