@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * 频道控制器
+ */
 @RestController
 @RequestMapping("/channels")
 public class ChannelsController {
@@ -38,5 +41,9 @@ public class ChannelsController {
                 new RestBean<>(200,"添加成功")
                 : new RestBean<>(500,"添加失败");
     }
+
+
+
+
 
 }

@@ -6,7 +6,7 @@
     <meta name="generator" content="smart-doc">
     <title>Future</title>
     <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="AllInOne.css?v=1679295460069"/>
+    <link rel="stylesheet" href="AllInOne.css?v=1679732956187"/>
     
     <style>.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
         background: #f7f7f8;
@@ -49,28 +49,43 @@
                     <li><a
                             href="api.html#_1_6_退出登录成功">1.6.&nbsp;退出登录成功</a>
                     </li>
+
+                    <li><a
+                            href="api.html#_1_7_用户注册">1.7.&nbsp;用户注册</a>
+                    </li>
                 </ul>
             </li>
-            <li class=""><a class="dd" href="ServersController.html#header">2.&nbsp;服务器控制器</a>
+            <li class=""><a class="dd" href="ChannelsController.html#header">2.&nbsp;频道控制器</a>
                 <ul class="sectlevel2" style="display: none">
                     <li><a
-                            href="ServersController.html#_2_1_添加服务器">2.1.&nbsp;添加服务器</a>
+                            href="ChannelsController.html#_2_1_添加频道">2.1.&nbsp;添加频道</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a class="dd" href="ServersController.html#header">3.&nbsp;服务器控制器</a>
+                <ul class="sectlevel2" style="display: none">
+                    <li><a
+                            href="ServersController.html#_3_1_添加服务器">3.1.&nbsp;添加服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_2_根据用户id查询服务器">2.2.&nbsp;根据用户id查询服务器</a>
+                            href="ServersController.html#_3_2_根据创建者用户id查询服务器">3.2.&nbsp;根据创建者用户id查询服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_3_根据用户id修改服务器类型">2.3.&nbsp;根据用户id修改服务器类型</a>
+                            href="ServersController.html#_3_3_根据用户id修改服务器类型">3.3.&nbsp;根据用户id修改服务器类型</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_4_加入服务器">2.4.&nbsp;加入服务器</a>
+                            href="ServersController.html#_3_4_加入服务器">3.4.&nbsp;加入服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_5_退出服务器">2.5.&nbsp;退出服务器</a>
+                            href="ServersController.html#_3_5_退出服务器">3.5.&nbsp;退出服务器</a>
+                    </li>
+
+                    <li><a
+                            href="ServersController.html#_3_6_根据当前用户id查询所有加入的服务器">3.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
                     </li>
                 </ul>
             </li>
@@ -139,9 +154,9 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 401,
-  "reason": "597j1t",
-  "data": "rv2320"
+  "code": 380,
+  "reason": "6w4j3g",
+  "data": "4nts2r"
 }</code></pre>
                     </div>
                 </div>
@@ -195,7 +210,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login --data 'username=jay.morissette&password=197xsc'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login --data 'username=isadora.kilback&password=dcurka'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -269,13 +284,13 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 460,
-  "reason": "tw0ks0",
+  "code": 66,
+  "reason": "95lzq4",
   "data": {
-    "username": "jay.morissette",
-    "series": "q148hf",
-    "tokenValue": "w1m8ri",
-    "date": "2023-03-20"
+    "username": "isadora.kilback",
+    "series": "9dxgxe",
+    "tokenValue": "jjgukh",
+    "date": "2023-03-25"
   }
 }</code></pre>
                     </div>
@@ -338,7 +353,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login-success --data 'username=jay.morissette&mail=j9olnf&code=79660'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login-success --data 'username=isadora.kilback&mail=udz7eu&code=66188'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -380,30 +395,65 @@
                     </tr>
 
                     <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户ID，主键自增长</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">└─username</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">No comments found.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户名，唯一索引</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
 
                     <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─series</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─email</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">No comments found.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">邮箱，唯一索引</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
 
                     <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─tokenValue</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─discriminator</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">No comments found.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">区分码，唯一索引</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
 
                     <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─date</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─password</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">No comments found.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">密码的哈希值，使用 bcrypt 算法进行加密</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─createdAt</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户创建时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─updatedAt</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">最近一次更新时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─role</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户角色</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─img</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户头像</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
                     </tbody>
@@ -412,13 +462,18 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 425,
-  "reason": "nbdz0j",
+  "code": 95,
+  "reason": "13cuce",
   "data": {
-    "username": "jay.morissette",
-    "series": "u00ojw",
-    "tokenValue": "54mfsz",
-    "date": "2023-03-20"
+    "id": 364,
+    "username": "isadora.kilback",
+    "email": "sergio.gerlach@hotmail.com",
+    "discriminator": "tu2irw",
+    "password": "ncv4lc",
+    "createdAt": "2023-03-25 16:29:17",
+    "updatedAt": "2023-03-25 16:29:17",
+    "role": "94uaik",
+    "img": "solqbp"
   }
 }</code></pre>
                     </div>
@@ -483,9 +538,9 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 551,
-  "reason": "7no31q",
-  "data": "pfokea"
+  "code": 481,
+  "reason": "a63ksv",
+  "data": "j6i5bp"
 }</code></pre>
                     </div>
                 </div>
@@ -549,9 +604,9 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 550,
-  "reason": "y2oba6",
-  "data": "5rb9ka"
+  "code": 109,
+  "reason": "ufjh1b",
+  "data": "rg7myk"
 }</code></pre>
                     </div>
                 </div>
@@ -615,21 +670,146 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 551,
-  "reason": "7ksgx8",
-  "data": "yjgsnk"
+  "code": 101,
+  "reason": "fjb7b7",
+  "data": "879xtf"
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sect2"><h3 id="_1_7_用户注册">
+                <a class="anchor" href="#_1_7_用户注册"></a>
+                <a class="link" href="#_1_7_用户注册">1.7.&nbsp;用户注册</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/auth/register" class="bare">&nbsp;http://{{server}}/auth/register</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;POST</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=UTF-8</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;用户注册</p></div>
+                <div class="paragraph"><p><strong>Query-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户名</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">密码</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">mail</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">邮箱</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">验证码</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">角色</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/register --data 'username=isadora.kilback&password=wos916&mail=fl0crp&code=66188&role=48dup9'</code></pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Field</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">状态码</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">reason</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">描述信息</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">携带数据内容</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="json">{
+  "code": 158,
+  "reason": "rer2g9"
 }</code></pre>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-20 14:57:40</span><span
+    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-25 16:29:16</span><span
             class="footer-modification">Suggestions,contact,support and error reporting on<a
             href="https://gitee.com/smart-doc-team/smart-doc" target="_blank">&nbsp;Gitee</a>&nbsp;or<a
             href="https://github.com/smart-doc-group/smart-doc.git" target="_blank">&nbsp;Github</a></span></footer>
 </div>
-<script src="search.js?v=1679295460069"></script>
+<script src="search.js?v=1679732956187"></script>
 <script>
     $(function () {
         const Accordion = function (el, multiple) {

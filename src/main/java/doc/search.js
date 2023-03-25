@@ -30,32 +30,51 @@ api[0].list.push({
     order: '6',
     desc: '退出登录成功',
 });
+api[0].list.push({
+    order: '7',
+    desc: '用户注册',
+});
 api.push({
-    alias: 'ServersController',
+    alias: 'ChannelsController',
     order: '2',
-    desc: '服务器控制器',
-    link: '服务器控制器',
+    desc: '频道控制器',
+    link: '频道控制器',
     list: []
 })
 api[1].list.push({
     order: '1',
+    desc: '添加频道',
+});
+api.push({
+    alias: 'ServersController',
+    order: '3',
+    desc: '服务器控制器',
+    link: '服务器控制器',
+    list: []
+})
+api[2].list.push({
+    order: '1',
     desc: '添加服务器',
 });
-api[1].list.push({
+api[2].list.push({
     order: '2',
-    desc: '根据用户id查询服务器',
+    desc: '根据创建者用户id查询服务器',
 });
-api[1].list.push({
+api[2].list.push({
     order: '3',
     desc: '根据用户id修改服务器类型',
 });
-api[1].list.push({
+api[2].list.push({
     order: '4',
     desc: '加入服务器',
 });
-api[1].list.push({
+api[2].list.push({
     order: '5',
     desc: '退出服务器',
+});
+api[2].list.push({
+    order: '6',
+    desc: '根据当前用户id查询所有加入的服务器',
 });
 document.onkeydown = keyDownSearch;
 function keyDownSearch(e) {

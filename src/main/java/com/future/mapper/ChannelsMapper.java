@@ -2,11 +2,7 @@ package com.future.mapper;
 
 import com.future.cache.RedisMybatisCache;
 import com.future.entity.Channels;
-import org.apache.ibatis.annotations.CacheNamespace;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 @CacheNamespace(implementation = RedisMybatisCache.class)

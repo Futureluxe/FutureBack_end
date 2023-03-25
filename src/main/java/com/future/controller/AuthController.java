@@ -6,8 +6,13 @@ import com.future.entity.resp.RestBean;
 import com.future.service.AuthServiceImpl;
 import com.future.service.UserService;
 import com.future.service.VerifyService;
+import com.future.util.SnowflakeIDAlgorithm;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -15,9 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.UUID;
+import java.util.Random;
 
 /**
  * 认证控制器
@@ -80,31 +83,16 @@ public class AuthController {
      * @return Users对象
      */
     @PostMapping("/login-success")
-    public RestBean<PersistentRememberMeToken> loginSuccess(
+    public RestBean<Users> loginSuccess(
             @RequestParam("username") String username,
             @RequestParam("mail") String mail,
             @RequestParam("code") String code
     ) {
-        Users nameExist = userService.isNameExist(username);
-        // 登录成功后，将token存入redis
-        String token = UUID.randomUUID().toString(); // 生成token
         // 获取用户名
         Users user = userService.isNameExist(username); // 获取用户信息
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 时间格式化
-        String date = sdf.format(new Date()); // 获取当前时间
-        Timestamp timestamp = Timestamp.valueOf(date); // 转换为Timestamp类型
-        // 封装token
-        PersistentRememberMeToken persistentRememberMeToken = new PersistentRememberMeToken(
-                user.getUsername(), // 用户名
-                // 生成seriesId
-                UUID.randomUUID().toString().replace("-", ""),
-                token, // token
-                timestamp // 过期时间
-        );
-        repository.createNewToken(persistentRememberMeToken); // 存入redis
         Boolean aBoolean = verifyService.doVerify(mail, code);
         return aBoolean ?
-                new RestBean<>(200,"Login Success",persistentRememberMeToken)
+                new RestBean<>(200,"Login Success",user)
                 : new RestBean<>(404,"Login Failed,VerifyCode Error");
     }
 
@@ -153,5 +141,44 @@ public class AuthController {
             e.printStackTrace();
             return new RestBean<>(500,"邮件发送失败");
         }
+    }
+
+    /**
+     * 用户注册
+     * @param username 用户名
+     * @param password 密码
+     * @param mail 邮箱
+     * @param code 验证码
+     * @param role 角色
+     * @return 注册结果
+     */
+    @PostMapping("/register")
+    public RestBean<Void> register(@RequestParam("username") String username,
+                                   @RequestParam("password") String password,
+                                   @RequestParam("mail") String mail,
+                                   @RequestParam("code") String code,
+                                   @RequestParam("role") String role
+    ) {
+        Boolean aBoolean = verifyService.doVerify(mail, code);
+        Random random = new Random();
+        // 生成随机数 0-10
+        int i = random.nextInt(10);
+        Random random1 = new Random();
+        // 生成随机数 0-10
+        int i1 = random1.nextInt(10);
+
+        if (aBoolean) {
+            Users user = new Users()
+                    .setUsername(username)
+                    .setPassword(new BCryptPasswordEncoder().encode(password))
+                    .setEmail(mail)
+                    .setCreatedAt(new Timestamp(System.currentTimeMillis()))
+                    .setDiscriminator(String.valueOf(new SnowflakeIDAlgorithm(i,i1).nextId()))
+                    .setRole(role);
+            userService.addUser(user);
+        }
+        return aBoolean ?
+                new RestBean<>(200,"Register Success")
+                : new RestBean<>(404,"Register Failed,VerifyCode Error");
     }
 }

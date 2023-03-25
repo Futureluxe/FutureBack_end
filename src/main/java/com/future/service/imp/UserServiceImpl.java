@@ -23,4 +23,15 @@ public class UserServiceImpl implements UserService {
     public Users isNameExist(String name) {
         return userMapper.findUser(name);
     }
+
+    /**
+     * 添加用户
+     *
+     * @param user 用户对象
+     * @return 添加结果
+     */
+    @Override
+    public Integer addUser(Users user) {
+        return userMapper.addUser(user);
+    }
 }

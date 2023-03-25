@@ -6,7 +6,7 @@
     <meta name="generator" content="smart-doc">
     <title>Future</title>
     <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="AllInOne.css?v=1679295460069"/>
+    <link rel="stylesheet" href="AllInOne.css?v=1679732956187"/>
     
     <style>.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
         background: #f7f7f8;
@@ -49,28 +49,43 @@
                     <li><a
                             href="api.html#_1_6_退出登录成功">1.6.&nbsp;退出登录成功</a>
                     </li>
+
+                    <li><a
+                            href="api.html#_1_7_用户注册">1.7.&nbsp;用户注册</a>
+                    </li>
                 </ul>
             </li>
-            <li class="open"><a class="dd" href="ServersController.html#header">2.&nbsp;服务器控制器</a>
+            <li class=""><a class="dd" href="ChannelsController.html#header">2.&nbsp;频道控制器</a>
+                <ul class="sectlevel2" style="display: none">
+                    <li><a
+                            href="ChannelsController.html#_2_1_添加频道">2.1.&nbsp;添加频道</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="open"><a class="dd" href="ServersController.html#header">3.&nbsp;服务器控制器</a>
                 <ul class="sectlevel2" style="display: block">
                     <li><a
-                            href="ServersController.html#_2_1_添加服务器">2.1.&nbsp;添加服务器</a>
+                            href="ServersController.html#_3_1_添加服务器">3.1.&nbsp;添加服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_2_根据用户id查询服务器">2.2.&nbsp;根据用户id查询服务器</a>
+                            href="ServersController.html#_3_2_根据创建者用户id查询服务器">3.2.&nbsp;根据创建者用户id查询服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_3_根据用户id修改服务器类型">2.3.&nbsp;根据用户id修改服务器类型</a>
+                            href="ServersController.html#_3_3_根据用户id修改服务器类型">3.3.&nbsp;根据用户id修改服务器类型</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_4_加入服务器">2.4.&nbsp;加入服务器</a>
+                            href="ServersController.html#_3_4_加入服务器">3.4.&nbsp;加入服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_2_5_退出服务器">2.5.&nbsp;退出服务器</a>
+                            href="ServersController.html#_3_5_退出服务器">3.5.&nbsp;退出服务器</a>
+                    </li>
+
+                    <li><a
+                            href="ServersController.html#_3_6_根据当前用户id查询所有加入的服务器">3.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
                     </li>
                 </ul>
             </li>
@@ -78,12 +93,12 @@
     </div>
 </div>
 <div id="content">
-    <div class="sect1"><h2 id="_服务器控制器"><a class="anchor" href="#_服务器控制器"></a><a class="link" href="#_服务器控制器">2.&nbsp;服务器控制器</a>
+    <div class="sect1"><h2 id="_服务器控制器"><a class="anchor" href="#_服务器控制器"></a><a class="link" href="#_服务器控制器">3.&nbsp;服务器控制器</a>
     </h2>
         <div class="sectionbody">
-            <div class="sect2"><h3 id="_2_1_添加服务器">
-                <a class="anchor" href="#_2_1_添加服务器"></a>
-                <a class="link" href="#_2_1_添加服务器">2.1.&nbsp;添加服务器</a>
+            <div class="sect2"><h3 id="_3_1_添加服务器">
+                <a class="anchor" href="#_3_1_添加服务器"></a>
+                <a class="link" href="#_3_1_添加服务器">3.1.&nbsp;添加服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/add" class="bare">&nbsp;http://{{server}}/server/add</a>
                 </p></div>
@@ -156,20 +171,12 @@
                         <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
-
-                    <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">member_id</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">No comments found.</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-                    </tr>
                     </tbody>
                 </table>
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/add --data 'name=jay.morissette&owner_id=873&created_at=2023-03-20 14:57:41&updated_at=2023-03-20 14:57:41&category=6ev22i&img=7p2qjs&member_id=78'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/add --data 'name=isadora.kilback&owner_id=458&created_at=2023-03-25 16:29:18&updated_at=2023-03-25 16:29:18&category=s36e17&img=yt3fyh'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -215,23 +222,23 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 588,
-  "reason": "e552j4",
-  "data": "ph3ppl"
+  "code": 990,
+  "reason": "h4mttv",
+  "data": "onoty0"
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_2_2_根据用户id查询服务器">
-                <a class="anchor" href="#_2_2_根据用户id查询服务器"></a>
-                <a class="link" href="#_2_2_根据用户id查询服务器">2.2.&nbsp;根据用户id查询服务器</a>
+            <div class="sect2"><h3 id="_3_2_根据创建者用户id查询服务器">
+                <a class="anchor" href="#_3_2_根据创建者用户id查询服务器"></a>
+                <a class="link" href="#_3_2_根据创建者用户id查询服务器">3.2.&nbsp;根据创建者用户id查询服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/getByOwnerId" class="bare">&nbsp;http://{{server}}/server/getByOwnerId</a>
                 </p></div>
                 <div class="paragraph"><p><strong>Type:</strong>&nbsp;POST</p></div>
                 <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=UTF-8</p></div>
-                <div class="paragraph"><p><strong>Description:</strong>&nbsp;根据用户id查询服务器</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;根据创建者用户id查询服务器</p></div>
                 <div class="paragraph"><p><strong>Query-parameters:</strong></p></div>
                 <table class="tableblock frame-all grid-all spread">
                     <colgroup>
@@ -254,7 +261,7 @@
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">owner_id</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">创建者id</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
@@ -263,7 +270,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/getByOwnerId --data 'owner_id=591'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/getByOwnerId --data 'owner_id=173'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -299,7 +306,7 @@
 
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">array</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">携带数据内容</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
@@ -352,39 +359,33 @@
                         <td class="tableblock halign-left valign-top"><p class="tableblock">服务器图标</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
-
-                    <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─memberId</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">成员 ID</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-                    </tr>
                     </tbody>
                 </table>
                 <div class="paragraph"><p><strong>Response-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 512,
-  "reason": "8pbmiw",
-  "data": {
-    "id": 291,
-    "name": "jay.morissette",
-    "ownerId": 441,
-    "createdAt": "2023-03-20 14:57:41",
-    "updatedAt": "2023-03-20 14:57:41",
-    "category": "l9xfw0",
-    "img": "vd1g83",
-    "memberId": "78"
-  }
+  "code": 268,
+  "reason": "vocc6p",
+  "data": [
+    {
+      "id": 174,
+      "name": "isadora.kilback",
+      "ownerId": 413,
+      "createdAt": "2023-03-25 16:29:18",
+      "updatedAt": "2023-03-25 16:29:18",
+      "category": "wglz84",
+      "img": "w0srr2"
+    }
+  ]
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_2_3_根据用户id修改服务器类型">
-                <a class="anchor" href="#_2_3_根据用户id修改服务器类型"></a>
-                <a class="link" href="#_2_3_根据用户id修改服务器类型">2.3.&nbsp;根据用户id修改服务器类型</a>
+            <div class="sect2"><h3 id="_3_3_根据用户id修改服务器类型">
+                <a class="anchor" href="#_3_3_根据用户id修改服务器类型"></a>
+                <a class="link" href="#_3_3_根据用户id修改服务器类型">3.3.&nbsp;根据用户id修改服务器类型</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/set_category" class="bare">&nbsp;http://{{server}}/server/set_category</a>
                 </p></div>
@@ -430,7 +431,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/set_category --data 'id=868&category=private'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/set_category --data 'id=881&category=private'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -476,17 +477,17 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 684,
-  "reason": "8egzlq",
-  "data": "ruqcy4"
+  "code": 709,
+  "reason": "b24cp9",
+  "data": "e5yj1a"
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_2_4_加入服务器">
-                <a class="anchor" href="#_2_4_加入服务器"></a>
-                <a class="link" href="#_2_4_加入服务器">2.4.&nbsp;加入服务器</a>
+            <div class="sect2"><h3 id="_3_4_加入服务器">
+                <a class="anchor" href="#_3_4_加入服务器"></a>
+                <a class="link" href="#_3_4_加入服务器">3.4.&nbsp;加入服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/{id}/join" class="bare">&nbsp;http://{{server}}/server/{id}/join</a>
                 </p></div>
@@ -524,7 +525,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/995/join</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/509/join</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -613,39 +614,31 @@
                         <td class="tableblock halign-left valign-top"><p class="tableblock">服务器图标</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
-
-                    <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─memberId</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">成员 ID</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-                    </tr>
                     </tbody>
                 </table>
                 <div class="paragraph"><p><strong>Response-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 523,
-  "reason": "flxg8j",
+  "code": 831,
+  "reason": "hovc0h",
   "data": {
-    "id": 464,
-    "name": "jay.morissette",
-    "ownerId": 464,
-    "createdAt": "2023-03-20 14:57:41",
-    "updatedAt": "2023-03-20 14:57:41",
-    "category": "s1q2ve",
-    "img": "poocxc",
-    "memberId": "78"
+    "id": 701,
+    "name": "isadora.kilback",
+    "ownerId": 997,
+    "createdAt": "2023-03-25 16:29:18",
+    "updatedAt": "2023-03-25 16:29:18",
+    "category": "r8lcw3",
+    "img": "zbht7v"
   }
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_2_5_退出服务器">
-                <a class="anchor" href="#_2_5_退出服务器"></a>
-                <a class="link" href="#_2_5_退出服务器">2.5.&nbsp;退出服务器</a>
+            <div class="sect2"><h3 id="_3_5_退出服务器">
+                <a class="anchor" href="#_3_5_退出服务器"></a>
+                <a class="link" href="#_3_5_退出服务器">3.5.&nbsp;退出服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/{id}/quit" class="bare">&nbsp;http://{{server}}/server/{id}/quit</a>
                 </p></div>
@@ -683,7 +676,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/644/quit</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/365/quit</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -772,11 +765,162 @@
                         <td class="tableblock halign-left valign-top"><p class="tableblock">服务器图标</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="json">{
+  "code": 669,
+  "reason": "5ekzj1",
+  "data": {
+    "id": 622,
+    "name": "isadora.kilback",
+    "ownerId": 674,
+    "createdAt": "2023-03-25 16:29:18",
+    "updatedAt": "2023-03-25 16:29:18",
+    "category": "tuifsf",
+    "img": "jycq89"
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sect2"><h3 id="_3_6_根据当前用户id查询所有加入的服务器">
+                <a class="anchor" href="#_3_6_根据当前用户id查询所有加入的服务器"></a>
+                <a class="link" href="#_3_6_根据当前用户id查询所有加入的服务器">3.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/showAllServer" class="bare">&nbsp;http://{{server}}/server/showAllServer</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;POST</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=UTF-8</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;根据当前用户id查询所有加入的服务器</p></div>
+                <div class="paragraph"><p><strong>Query-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">当前用户id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/showAllServer --data 'id=421'</code></pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Field</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">状态码</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
 
                     <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─memberId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">reason</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">成员 ID</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">描述信息</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">携带数据内容</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─mapKey</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器表<br>服务器表存储了所有 Future 服务器信息(Servers)实体类</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器ID，主键自增长</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器名称</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ownerId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器创建者ID，外键关联用户表</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createdAt</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器创建时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updatedAt</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">最近一次更新时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─category</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器类别</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─img</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器图标</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
                     </tbody>
@@ -785,17 +929,18 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 340,
-  "reason": "scasz8",
+  "code": 144,
+  "reason": "dqarvm",
   "data": {
-    "id": 386,
-    "name": "jay.morissette",
-    "ownerId": 879,
-    "createdAt": "2023-03-20 14:57:41",
-    "updatedAt": "2023-03-20 14:57:41",
-    "category": "cplsgy",
-    "img": "bh2aia",
-    "memberId": "78"
+    "mapKey": {
+      "id": 135,
+      "name": "isadora.kilback",
+      "ownerId": 178,
+      "createdAt": "2023-03-25 16:29:18",
+      "updatedAt": "2023-03-25 16:29:18",
+      "category": "jecdwj",
+      "img": "uaddh2"
+    }
   }
 }</code></pre>
                     </div>
@@ -803,12 +948,12 @@
             </div>
         </div>
     </div>
-    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-20 14:57:40</span><span
+    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-25 16:29:16</span><span
             class="footer-modification">Suggestions,contact,support and error reporting on<a
             href="https://gitee.com/smart-doc-team/smart-doc" target="_blank">&nbsp;Gitee</a>&nbsp;or<a
             href="https://github.com/smart-doc-group/smart-doc.git" target="_blank">&nbsp;Github</a></span></footer>
 </div>
-<script src="search.js?v=1679295460069"></script>
+<script src="search.js?v=1679732956187"></script>
 <script>
     $(function () {
         const Accordion = function (el, multiple) {

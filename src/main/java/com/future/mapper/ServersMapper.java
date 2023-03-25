@@ -3,7 +3,6 @@ package com.future.mapper;
 import com.future.cache.RedisMybatisCache;
 import com.future.entity.Servers;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -24,9 +23,8 @@ public interface ServersMapper {
             @Result(column = "updated_at",property = "updatedAt"),
             @Result(column = "category",property = "category"),
             @Result(column = "img",property = "img"),
-            @Result(column = "member_id",property = "memberId")
     })
-    @Insert("insert into servers(name,owner_id,created_at,updated_at,category,img,member_id) value (#{name},#{ownerId},#{createdAt},#{updatedAt},#{catrgory},#{img},#{memberId})")
+    @Insert("insert into servers(name,owner_id,created_at,updated_at,category,img) value (#{name},#{ownerId},#{createdAt},#{updatedAt},#{catrgory},#{img})")
     Integer insertServer(Servers servers);
 
     /**
@@ -63,6 +61,31 @@ public interface ServersMapper {
     @Update("update servers set name = #{name},category = #{category},img = #{img} where id = #{id}")
     Integer updateServer(Servers servers);
 
+    /**
+     * 根据服务器 ID 添加服务器成员
+     * @param serverId 服务器 ID
+     * @param userId 用户 ID
+     * @return 添加结果
+     */
+    @Insert("insert into server_user(server_id, user_id) value (#{serverId}, #{userId})")
+    Integer insertServerUser(@Param("serverId") Integer serverId, @Param("userId") Integer userId);
+
+    /**
+     * 根据服务器 ID 删除服务器成员
+     * @param serverId 服务器 ID
+     * @param userId 用户 ID
+     * @return 删除结果
+     */
+    @Update("update server_user set del_soft = 1 where server_id = #{serverId} and user_id = #{userId}")
+    Integer deleteServerUser(@Param("serverId") Integer serverId, @Param("userId") Integer userId);
+
+    /**
+     * 根据用户id 查询服务器id
+     * @param userId 用户 ID
+     * @return 服务器成员
+     */
+    @Select("select server_id from server_user where user_id = #{userId}")
+    List<Integer> selectServerIdByUserId(@Param("userId") Integer userId);
 
 
 }

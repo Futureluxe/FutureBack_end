@@ -4,6 +4,7 @@ import com.future.entity.Servers;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface ServerService {
@@ -15,8 +16,8 @@ public interface ServerService {
     Boolean addServer(Servers servers);
 
     /**
-     * 根据服务器id查找服务器
-     * @param ownerId 服务器id
+     * 根据创建者id查找服务器
+     * @param ownerId 创建者id
      * @return 服务器对象
      */
     List<Servers> getServerByOwnerId(Integer ownerId);
@@ -34,7 +35,7 @@ public interface ServerService {
      * @param id       服务器 ID
      * @param memberId 成员 ID
      */
-    Boolean joinServer(Integer id, String memberId);
+    Boolean joinServer(Integer id, Integer memberId);
 
     /**
      * 发送消息
@@ -49,6 +50,20 @@ public interface ServerService {
      * @param id       服务器 ID
      * @param memberId 成员 ID
      */
-    Boolean quitServer(Integer id, String memberId);
+    Boolean quitServer(Integer id, Integer memberId);
+
+    /**
+     * 根据服务器 ID 查询服务器成员
+     * @param id 服务器 ID
+     * @return List<Integer>
+     */
+    Map<String,Servers> getServerMember(Integer id);
+
+    /**
+     * 根据用户 ID 查询服务器信息
+     * @param id 服务器 ID
+     * @return Map<String,Servers>
+     */
+    Map<String,Servers> getServerMemberByServerId(Integer id);
 
 }

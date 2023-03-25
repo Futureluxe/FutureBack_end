@@ -11,8 +11,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * 消息表
-消息表存储了所有 Future 消息信息(Messages)实体类
+ * 私信表(PrivateMessages)实体类
  *
  * @author makejava
  * @since 2023-03-24 21:39:59
@@ -21,27 +20,27 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class Messages implements Serializable {
+public class PrivateMessages implements Serializable {
     @Serial
-    private static final long serialVersionUID = -24779403710355938L;
+    private static final long serialVersionUID = 608221893681928306L;
     /**
-     * 消息ID，主键自增长
+     * 私信id
      */
     private Integer id;
     /**
-     * 消息内容
+     * 文本内容
      */
     private String content;
     /**
-     * 消息发送者ID，外键关联用户表
+     * 发送者id
      */
     private Integer authorId;
     /**
-     * 消息所属频道ID，外键关联频道表
+     * 接收者id
      */
-    private Integer channelId;
+    private Integer receptionId;
     /**
-     * 消息创建时间
+     * 创建时间
      */
     private Timestamp createdAt;
 
