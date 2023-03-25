@@ -44,4 +44,13 @@ public interface UserMapper {
             @Result(column = "discriminator",property = "discriminator")
     })
     Integer addUser(Users user);
+
+    /**
+     * 通过id查询用户
+     * @param id 用户id
+     * @return Users对象
+     */
+    @Select("select * from users where id=#{id}")
+    @ResultMap("userMap")// 使用上面的@Results
+    Users findUserById(@Param("id") Integer id);
 }
