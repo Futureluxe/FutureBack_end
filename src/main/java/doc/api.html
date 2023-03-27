@@ -6,7 +6,7 @@
     <meta name="generator" content="smart-doc">
     <title>Future</title>
     <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="AllInOne.css?v=1679732956187"/>
+    <link rel="stylesheet" href="AllInOne.css?v=1679920138065"/>
     
     <style>.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
         background: #f7f7f8;
@@ -62,30 +62,52 @@
                     </li>
                 </ul>
             </li>
-            <li class=""><a class="dd" href="ServersController.html#header">3.&nbsp;服务器控制器</a>
+            <li class=""><a class="dd" href="PrivateMessagesController.html#header">3.&nbsp;</a>
                 <ul class="sectlevel2" style="display: none">
                     <li><a
-                            href="ServersController.html#_3_1_添加服务器">3.1.&nbsp;添加服务器</a>
+                            href="PrivateMessagesController.html#_3_1_发送私信">3.1.&nbsp;发送私信</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_2_根据创建者用户id查询服务器">3.2.&nbsp;根据创建者用户id查询服务器</a>
+                            href="PrivateMessagesController.html#_3_2_获取用户的所有私信">3.2.&nbsp;获取用户的所有私信</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a class="dd" href="RelationshipsController.html#header">4.&nbsp;好友控制器</a>
+                <ul class="sectlevel2" style="display: none">
+                    <li><a
+                            href="RelationshipsController.html#_4_1_添加好友">4.1.&nbsp;添加好友</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_3_根据用户id修改服务器类型">3.3.&nbsp;根据用户id修改服务器类型</a>
+                            href="RelationshipsController.html#_4_2_通过用户id查询好友">4.2.&nbsp;通过用户id查询好友</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a class="dd" href="ServersController.html#header">5.&nbsp;服务器控制器</a>
+                <ul class="sectlevel2" style="display: none">
+                    <li><a
+                            href="ServersController.html#_5_1_添加服务器">5.1.&nbsp;添加服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_4_加入服务器">3.4.&nbsp;加入服务器</a>
+                            href="ServersController.html#_5_2_根据创建者用户id查询服务器">5.2.&nbsp;根据创建者用户id查询服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_5_退出服务器">3.5.&nbsp;退出服务器</a>
+                            href="ServersController.html#_5_3_根据用户id修改服务器类型">5.3.&nbsp;根据用户id修改服务器类型</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_6_根据当前用户id查询所有加入的服务器">3.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
+                            href="ServersController.html#_5_4_加入服务器">5.4.&nbsp;加入服务器</a>
+                    </li>
+
+                    <li><a
+                            href="ServersController.html#_5_5_退出服务器">5.5.&nbsp;退出服务器</a>
+                    </li>
+
+                    <li><a
+                            href="ServersController.html#_5_6_根据当前用户id查询所有加入的服务器">5.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
                     </li>
                 </ul>
             </li>
@@ -154,9 +176,9 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 380,
-  "reason": "6w4j3g",
-  "data": "4nts2r"
+  "code": 66,
+  "reason": "mmmthl",
+  "data": "js30qr"
 }</code></pre>
                     </div>
                 </div>
@@ -210,7 +232,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login --data 'username=isadora.kilback&password=dcurka'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login --data 'username=eleonore.bailey&password=3q8udo'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -284,13 +306,13 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 66,
-  "reason": "95lzq4",
+  "code": 652,
+  "reason": "dukmpr",
   "data": {
-    "username": "isadora.kilback",
-    "series": "9dxgxe",
-    "tokenValue": "jjgukh",
-    "date": "2023-03-25"
+    "username": "eleonore.bailey",
+    "series": "uagews",
+    "tokenValue": "htjw76",
+    "date": "2023-03-27"
   }
 }</code></pre>
                     </div>
@@ -353,7 +375,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login-success --data 'username=isadora.kilback&mail=udz7eu&code=66188'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/login-success --data 'username=eleonore.bailey&mail=qh6ywg&code=91597'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -462,18 +484,18 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 95,
-  "reason": "13cuce",
+  "code": 147,
+  "reason": "cdyxpp",
   "data": {
-    "id": 364,
-    "username": "isadora.kilback",
-    "email": "sergio.gerlach@hotmail.com",
-    "discriminator": "tu2irw",
-    "password": "ncv4lc",
-    "createdAt": "2023-03-25 16:29:17",
-    "updatedAt": "2023-03-25 16:29:17",
-    "role": "94uaik",
-    "img": "solqbp"
+    "id": 356,
+    "username": "eleonore.bailey",
+    "email": "arlie.lueilwitz@hotmail.com",
+    "discriminator": "9y4rtz",
+    "password": "u34u8n",
+    "createdAt": "2023-03-27 20:28:59",
+    "updatedAt": "2023-03-27 20:28:59",
+    "role": "xo0jw2",
+    "img": "d62xqr"
   }
 }</code></pre>
                     </div>
@@ -538,9 +560,9 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 481,
-  "reason": "a63ksv",
-  "data": "j6i5bp"
+  "code": 64,
+  "reason": "kso8kt",
+  "data": "hthp8j"
 }</code></pre>
                     </div>
                 </div>
@@ -604,9 +626,9 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 109,
-  "reason": "ufjh1b",
-  "data": "rg7myk"
+  "code": 75,
+  "reason": "ud75yf",
+  "data": "z62wj5"
 }</code></pre>
                     </div>
                 </div>
@@ -670,9 +692,9 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 101,
-  "reason": "fjb7b7",
-  "data": "879xtf"
+  "code": 620,
+  "reason": "l8qglc",
+  "data": "q5yvvz"
 }</code></pre>
                     </div>
                 </div>
@@ -750,7 +772,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/register --data 'username=isadora.kilback&password=wos916&mail=fl0crp&code=66188&role=48dup9'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/auth/register --data 'username=eleonore.bailey&password=305sft&mail=gqxrk1&code=91597&role=0pjva1'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -796,20 +818,20 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 158,
-  "reason": "rer2g9"
+  "code": 984,
+  "reason": "dpj470"
 }</code></pre>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-25 16:29:16</span><span
+    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-27 20:28:58</span><span
             class="footer-modification">Suggestions,contact,support and error reporting on<a
             href="https://gitee.com/smart-doc-team/smart-doc" target="_blank">&nbsp;Gitee</a>&nbsp;or<a
             href="https://github.com/smart-doc-group/smart-doc.git" target="_blank">&nbsp;Github</a></span></footer>
 </div>
-<script src="search.js?v=1679732956187"></script>
+<script src="search.js?v=1679920138065"></script>
 <script>
     $(function () {
         const Accordion = function (el, multiple) {

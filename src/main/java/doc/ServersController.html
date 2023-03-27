@@ -6,7 +6,7 @@
     <meta name="generator" content="smart-doc">
     <title>Future</title>
     <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="AllInOne.css?v=1679732956187"/>
+    <link rel="stylesheet" href="AllInOne.css?v=1679920138065"/>
     
     <style>.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
         background: #f7f7f8;
@@ -62,30 +62,52 @@
                     </li>
                 </ul>
             </li>
-            <li class="open"><a class="dd" href="ServersController.html#header">3.&nbsp;服务器控制器</a>
+            <li class=""><a class="dd" href="PrivateMessagesController.html#header">3.&nbsp;</a>
+                <ul class="sectlevel2" style="display: none">
+                    <li><a
+                            href="PrivateMessagesController.html#_3_1_发送私信">3.1.&nbsp;发送私信</a>
+                    </li>
+
+                    <li><a
+                            href="PrivateMessagesController.html#_3_2_获取用户的所有私信">3.2.&nbsp;获取用户的所有私信</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a class="dd" href="RelationshipsController.html#header">4.&nbsp;好友控制器</a>
+                <ul class="sectlevel2" style="display: none">
+                    <li><a
+                            href="RelationshipsController.html#_4_1_添加好友">4.1.&nbsp;添加好友</a>
+                    </li>
+
+                    <li><a
+                            href="RelationshipsController.html#_4_2_通过用户id查询好友">4.2.&nbsp;通过用户id查询好友</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="open"><a class="dd" href="ServersController.html#header">5.&nbsp;服务器控制器</a>
                 <ul class="sectlevel2" style="display: block">
                     <li><a
-                            href="ServersController.html#_3_1_添加服务器">3.1.&nbsp;添加服务器</a>
+                            href="ServersController.html#_5_1_添加服务器">5.1.&nbsp;添加服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_2_根据创建者用户id查询服务器">3.2.&nbsp;根据创建者用户id查询服务器</a>
+                            href="ServersController.html#_5_2_根据创建者用户id查询服务器">5.2.&nbsp;根据创建者用户id查询服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_3_根据用户id修改服务器类型">3.3.&nbsp;根据用户id修改服务器类型</a>
+                            href="ServersController.html#_5_3_根据用户id修改服务器类型">5.3.&nbsp;根据用户id修改服务器类型</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_4_加入服务器">3.4.&nbsp;加入服务器</a>
+                            href="ServersController.html#_5_4_加入服务器">5.4.&nbsp;加入服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_5_退出服务器">3.5.&nbsp;退出服务器</a>
+                            href="ServersController.html#_5_5_退出服务器">5.5.&nbsp;退出服务器</a>
                     </li>
 
                     <li><a
-                            href="ServersController.html#_3_6_根据当前用户id查询所有加入的服务器">3.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
+                            href="ServersController.html#_5_6_根据当前用户id查询所有加入的服务器">5.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
                     </li>
                 </ul>
             </li>
@@ -93,12 +115,12 @@
     </div>
 </div>
 <div id="content">
-    <div class="sect1"><h2 id="_服务器控制器"><a class="anchor" href="#_服务器控制器"></a><a class="link" href="#_服务器控制器">3.&nbsp;服务器控制器</a>
+    <div class="sect1"><h2 id="_服务器控制器"><a class="anchor" href="#_服务器控制器"></a><a class="link" href="#_服务器控制器">5.&nbsp;服务器控制器</a>
     </h2>
         <div class="sectionbody">
-            <div class="sect2"><h3 id="_3_1_添加服务器">
-                <a class="anchor" href="#_3_1_添加服务器"></a>
-                <a class="link" href="#_3_1_添加服务器">3.1.&nbsp;添加服务器</a>
+            <div class="sect2"><h3 id="_5_1_添加服务器">
+                <a class="anchor" href="#_5_1_添加服务器"></a>
+                <a class="link" href="#_5_1_添加服务器">5.1.&nbsp;添加服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/add" class="bare">&nbsp;http://{{server}}/server/add</a>
                 </p></div>
@@ -176,7 +198,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/add --data 'name=isadora.kilback&owner_id=458&created_at=2023-03-25 16:29:18&updated_at=2023-03-25 16:29:18&category=s36e17&img=yt3fyh'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/add --data 'name=eleonore.bailey&owner_id=317&created_at=2023-03-27 20:28:59&updated_at=2023-03-27 20:28:59&category=79rjrk&img=zx7z1n'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -222,17 +244,17 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 990,
-  "reason": "h4mttv",
-  "data": "onoty0"
+  "code": 417,
+  "reason": "isdmls",
+  "data": "nqkd1n"
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_3_2_根据创建者用户id查询服务器">
-                <a class="anchor" href="#_3_2_根据创建者用户id查询服务器"></a>
-                <a class="link" href="#_3_2_根据创建者用户id查询服务器">3.2.&nbsp;根据创建者用户id查询服务器</a>
+            <div class="sect2"><h3 id="_5_2_根据创建者用户id查询服务器">
+                <a class="anchor" href="#_5_2_根据创建者用户id查询服务器"></a>
+                <a class="link" href="#_5_2_根据创建者用户id查询服务器">5.2.&nbsp;根据创建者用户id查询服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/getByOwnerId" class="bare">&nbsp;http://{{server}}/server/getByOwnerId</a>
                 </p></div>
@@ -270,7 +292,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/getByOwnerId --data 'owner_id=173'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/getByOwnerId --data 'owner_id=11'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -365,17 +387,17 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 268,
-  "reason": "vocc6p",
+  "code": 937,
+  "reason": "17bwxa",
   "data": [
     {
-      "id": 174,
-      "name": "isadora.kilback",
-      "ownerId": 413,
-      "createdAt": "2023-03-25 16:29:18",
-      "updatedAt": "2023-03-25 16:29:18",
-      "category": "wglz84",
-      "img": "w0srr2"
+      "id": 811,
+      "name": "eleonore.bailey",
+      "ownerId": 994,
+      "createdAt": "2023-03-27 20:28:59",
+      "updatedAt": "2023-03-27 20:28:59",
+      "category": "pfk1o8",
+      "img": "21z9hb"
     }
   ]
 }</code></pre>
@@ -383,9 +405,9 @@
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_3_3_根据用户id修改服务器类型">
-                <a class="anchor" href="#_3_3_根据用户id修改服务器类型"></a>
-                <a class="link" href="#_3_3_根据用户id修改服务器类型">3.3.&nbsp;根据用户id修改服务器类型</a>
+            <div class="sect2"><h3 id="_5_3_根据用户id修改服务器类型">
+                <a class="anchor" href="#_5_3_根据用户id修改服务器类型"></a>
+                <a class="link" href="#_5_3_根据用户id修改服务器类型">5.3.&nbsp;根据用户id修改服务器类型</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/set_category" class="bare">&nbsp;http://{{server}}/server/set_category</a>
                 </p></div>
@@ -431,7 +453,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/set_category --data 'id=881&category=private'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/set_category --data 'id=684&category=private'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -477,17 +499,17 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 709,
-  "reason": "b24cp9",
-  "data": "e5yj1a"
+  "code": 441,
+  "reason": "fpx8k5",
+  "data": "2pu4k3"
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_3_4_加入服务器">
-                <a class="anchor" href="#_3_4_加入服务器"></a>
-                <a class="link" href="#_3_4_加入服务器">3.4.&nbsp;加入服务器</a>
+            <div class="sect2"><h3 id="_5_4_加入服务器">
+                <a class="anchor" href="#_5_4_加入服务器"></a>
+                <a class="link" href="#_5_4_加入服务器">5.4.&nbsp;加入服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/{id}/join" class="bare">&nbsp;http://{{server}}/server/{id}/join</a>
                 </p></div>
@@ -525,7 +547,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/509/join</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/99/join</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -620,25 +642,25 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 831,
-  "reason": "hovc0h",
+  "code": 721,
+  "reason": "ipmqdt",
   "data": {
-    "id": 701,
-    "name": "isadora.kilback",
-    "ownerId": 997,
-    "createdAt": "2023-03-25 16:29:18",
-    "updatedAt": "2023-03-25 16:29:18",
-    "category": "r8lcw3",
-    "img": "zbht7v"
+    "id": 638,
+    "name": "eleonore.bailey",
+    "ownerId": 288,
+    "createdAt": "2023-03-27 20:28:59",
+    "updatedAt": "2023-03-27 20:28:59",
+    "category": "34la2b",
+    "img": "d1vbqn"
   }
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_3_5_退出服务器">
-                <a class="anchor" href="#_3_5_退出服务器"></a>
-                <a class="link" href="#_3_5_退出服务器">3.5.&nbsp;退出服务器</a>
+            <div class="sect2"><h3 id="_5_5_退出服务器">
+                <a class="anchor" href="#_5_5_退出服务器"></a>
+                <a class="link" href="#_5_5_退出服务器">5.5.&nbsp;退出服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/{id}/quit" class="bare">&nbsp;http://{{server}}/server/{id}/quit</a>
                 </p></div>
@@ -676,7 +698,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/365/quit</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/207/quit</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -771,25 +793,25 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 669,
-  "reason": "5ekzj1",
+  "code": 70,
+  "reason": "tfyvka",
   "data": {
-    "id": 622,
-    "name": "isadora.kilback",
-    "ownerId": 674,
-    "createdAt": "2023-03-25 16:29:18",
-    "updatedAt": "2023-03-25 16:29:18",
-    "category": "tuifsf",
-    "img": "jycq89"
+    "id": 389,
+    "name": "eleonore.bailey",
+    "ownerId": 579,
+    "createdAt": "2023-03-27 20:29:00",
+    "updatedAt": "2023-03-27 20:29:00",
+    "category": "lrk0ht",
+    "img": "4frqil"
   }
 }</code></pre>
                     </div>
                 </div>
             </div>
 
-            <div class="sect2"><h3 id="_3_6_根据当前用户id查询所有加入的服务器">
-                <a class="anchor" href="#_3_6_根据当前用户id查询所有加入的服务器"></a>
-                <a class="link" href="#_3_6_根据当前用户id查询所有加入的服务器">3.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
+            <div class="sect2"><h3 id="_5_6_根据当前用户id查询所有加入的服务器">
+                <a class="anchor" href="#_5_6_根据当前用户id查询所有加入的服务器"></a>
+                <a class="link" href="#_5_6_根据当前用户id查询所有加入的服务器">5.6.&nbsp;根据当前用户id查询所有加入的服务器</a>
             </h3>
                 <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/server/showAllServer" class="bare">&nbsp;http://{{server}}/server/showAllServer</a>
                 </p></div>
@@ -827,7 +849,7 @@
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/showAllServer --data 'id=421'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/server/showAllServer --data 'id=436'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -929,17 +951,17 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 144,
-  "reason": "dqarvm",
+  "code": 947,
+  "reason": "yiafpf",
   "data": {
     "mapKey": {
-      "id": 135,
-      "name": "isadora.kilback",
-      "ownerId": 178,
-      "createdAt": "2023-03-25 16:29:18",
-      "updatedAt": "2023-03-25 16:29:18",
-      "category": "jecdwj",
-      "img": "uaddh2"
+      "id": 416,
+      "name": "eleonore.bailey",
+      "ownerId": 467,
+      "createdAt": "2023-03-27 20:29:00",
+      "updatedAt": "2023-03-27 20:29:00",
+      "category": "wlf61w",
+      "img": "2nevu0"
     }
   }
 }</code></pre>
@@ -948,12 +970,12 @@
             </div>
         </div>
     </div>
-    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-25 16:29:16</span><span
+    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2023-03-27 20:28:58</span><span
             class="footer-modification">Suggestions,contact,support and error reporting on<a
             href="https://gitee.com/smart-doc-team/smart-doc" target="_blank">&nbsp;Gitee</a>&nbsp;or<a
             href="https://github.com/smart-doc-group/smart-doc.git" target="_blank">&nbsp;Github</a></span></footer>
 </div>
-<script src="search.js?v=1679732956187"></script>
+<script src="search.js?v=1679920138065"></script>
 <script>
     $(function () {
         const Accordion = function (el, multiple) {

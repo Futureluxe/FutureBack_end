@@ -46,33 +46,63 @@ api[1].list.push({
     desc: '添加频道',
 });
 api.push({
-    alias: 'ServersController',
+    alias: 'PrivateMessagesController',
     order: '3',
-    desc: '服务器控制器',
-    link: '服务器控制器',
+    desc: '',
+    link: '',
     list: []
 })
 api[2].list.push({
     order: '1',
-    desc: '添加服务器',
+    desc: '发送私信',
 });
 api[2].list.push({
     order: '2',
+    desc: '获取用户的所有私信',
+});
+api.push({
+    alias: 'RelationshipsController',
+    order: '4',
+    desc: '好友控制器',
+    link: '好友控制器',
+    list: []
+})
+api[3].list.push({
+    order: '1',
+    desc: '添加好友',
+});
+api[3].list.push({
+    order: '2',
+    desc: '通过用户id查询好友',
+});
+api.push({
+    alias: 'ServersController',
+    order: '5',
+    desc: '服务器控制器',
+    link: '服务器控制器',
+    list: []
+})
+api[4].list.push({
+    order: '1',
+    desc: '添加服务器',
+});
+api[4].list.push({
+    order: '2',
     desc: '根据创建者用户id查询服务器',
 });
-api[2].list.push({
+api[4].list.push({
     order: '3',
     desc: '根据用户id修改服务器类型',
 });
-api[2].list.push({
+api[4].list.push({
     order: '4',
     desc: '加入服务器',
 });
-api[2].list.push({
+api[4].list.push({
     order: '5',
     desc: '退出服务器',
 });
-api[2].list.push({
+api[4].list.push({
     order: '6',
     desc: '根据当前用户id查询所有加入的服务器',
 });

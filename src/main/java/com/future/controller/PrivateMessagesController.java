@@ -12,6 +12,9 @@ import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.List;
 
+/**
+ * 私信控制器
+ */
 @RestController
 @RequestMapping("/privateMessages")
 public class PrivateMessagesController {

@@ -55,15 +55,15 @@
                     </li>
                 </ul>
             </li>
-            <li class="open"><a class="dd" href="ChannelsController.html#header">2.&nbsp;频道控制器</a>
-                <ul class="sectlevel2" style="display: block">
+            <li class=""><a class="dd" href="ChannelsController.html#header">2.&nbsp;频道控制器</a>
+                <ul class="sectlevel2" style="display: none">
                     <li><a
                             href="ChannelsController.html#_2_1_添加频道">2.1.&nbsp;添加频道</a>
                     </li>
                 </ul>
             </li>
-            <li class=""><a class="dd" href="PrivateMessagesController.html#header">3.&nbsp;</a>
-                <ul class="sectlevel2" style="display: none">
+            <li class="open"><a class="dd" href="PrivateMessagesController.html#header">3.&nbsp;</a>
+                <ul class="sectlevel2" style="display: block">
                     <li><a
                             href="PrivateMessagesController.html#_3_1_发送私信">3.1.&nbsp;发送私信</a>
                     </li>
@@ -115,18 +115,18 @@
     </div>
 </div>
 <div id="content">
-    <div class="sect1"><h2 id="_频道控制器"><a class="anchor" href="#_频道控制器"></a><a class="link" href="#_频道控制器">2.&nbsp;频道控制器</a>
+    <div class="sect1"><h2 id="_"><a class="anchor" href="#_"></a><a class="link" href="#_">3.&nbsp;</a>
     </h2>
         <div class="sectionbody">
-            <div class="sect2"><h3 id="_2_1_添加频道">
-                <a class="anchor" href="#_2_1_添加频道"></a>
-                <a class="link" href="#_2_1_添加频道">2.1.&nbsp;添加频道</a>
+            <div class="sect2"><h3 id="_3_1_发送私信">
+                <a class="anchor" href="#_3_1_发送私信"></a>
+                <a class="link" href="#_3_1_发送私信">3.1.&nbsp;发送私信</a>
             </h3>
-                <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/channels/add" class="bare">&nbsp;http://{{server}}/channels/add</a>
+                <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/privateMessages/sendPrivateMessages" class="bare">&nbsp;http://{{server}}/privateMessages/sendPrivateMessages</a>
                 </p></div>
                 <div class="paragraph"><p><strong>Type:</strong>&nbsp;POST</p></div>
                 <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=UTF-8</p></div>
-                <div class="paragraph"><p><strong>Description:</strong>&nbsp;添加频道</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;发送私信</p></div>
                 <div class="paragraph"><p><strong>Query-parameters:</strong></p></div>
                 <table class="tableblock frame-all grid-all spread">
                     <colgroup>
@@ -147,17 +147,25 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">content</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">频道名称</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">内容</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
 
                     <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">server_id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">author_id</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">服务器id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">发送者id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">reception_id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">接收者id</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
@@ -169,20 +177,12 @@
                         <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
                     </tr>
-
-                    <tr>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">updated_at</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">更新时间</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-                    </tr>
                     </tbody>
                 </table>
                 <div class="paragraph"><p><strong>Request-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
-                        <pre><code class="bash">curl -X POST -i http://{{server}}/channels/add --data 'name=eleonore.bailey&server_id=197&created_at=63v7qg&updated_at=w9uwrx'</code></pre>
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/privateMessages/sendPrivateMessages --data 'content=xagtpz&author_id=508&reception_id=47&created_at=2023-03-27 20:28:59'</code></pre>
                     </div>
                 </div>
                 <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
@@ -228,9 +228,146 @@
                 <div class="listingblock">
                     <div class="content">
                         <pre><code class="json">{
-  "code": 258,
-  "reason": "jsjmj0",
-  "data": "lrlpjb"
+  "code": 437,
+  "reason": "4t3p9q",
+  "data": "qxb442"
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sect2"><h3 id="_3_2_获取用户的所有私信">
+                <a class="anchor" href="#_3_2_获取用户的所有私信"></a>
+                <a class="link" href="#_3_2_获取用户的所有私信">3.2.&nbsp;获取用户的所有私信</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="http://{{server}}/privateMessages/getAllMessagesForUser" class="bare">&nbsp;http://{{server}}/privateMessages/getAllMessagesForUser</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;POST</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=UTF-8</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;获取用户的所有私信</p></div>
+                <div class="paragraph"><p><strong>Query-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">user_id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">用户id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="bash">curl -X POST -i http://{{server}}/privateMessages/getAllMessagesForUser --data 'user_id=594'</code></pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Field</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">状态码</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">reason</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">描述信息</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">array</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">携带数据内容</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">私信id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─content</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">文本内容</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─authorId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">发送者id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─receptionId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">接收者id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">└─createdAt</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">创建时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="json">{
+  "code": 654,
+  "reason": "7zh452",
+  "data": [
+    {
+      "id": 1,
+      "content": "6810f1",
+      "authorId": 963,
+      "receptionId": 41,
+      "createdAt": "2023-03-27 20:28:59"
+    }
+  ]
 }</code></pre>
                     </div>
                 </div>
