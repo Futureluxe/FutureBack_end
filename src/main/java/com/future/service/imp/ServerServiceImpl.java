@@ -11,9 +11,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The type Server service.
+ */
 @Service
 public class ServerServiceImpl implements ServerService {
 
+    /**
+     * The Servers mapper.
+     */
     @Resource
     ServersMapper serversMapper;
 

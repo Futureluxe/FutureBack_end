@@ -4,11 +4,14 @@ import com.future.entity.Users;
 import com.future.mapper.RelationshipsMapper;
 import com.future.mapper.UserMapper;
 import com.future.service.RelationshipsService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+@Service
 
 public class RelationshipsServiceImpl implements RelationshipsService {
 

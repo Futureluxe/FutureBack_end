@@ -48,8 +48,8 @@ api[1].list.push({
 api.push({
     alias: 'PrivateMessagesController',
     order: '3',
-    desc: '',
-    link: '',
+    desc: '私信控制器',
+    link: '私信控制器',
     list: []
 })
 api[2].list.push({

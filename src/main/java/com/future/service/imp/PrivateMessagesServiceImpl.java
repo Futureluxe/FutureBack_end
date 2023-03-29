@@ -3,10 +3,12 @@ package com.future.service.imp;
 import com.future.entity.PrivateMessages;
 import com.future.mapper.PrivateMessagesMapper;
 import com.future.service.PrivateMessagesService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Service
 public class PrivateMessagesServiceImpl implements PrivateMessagesService {
 
     @Resource
