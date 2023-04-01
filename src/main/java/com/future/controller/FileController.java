@@ -18,6 +18,9 @@ import java.util.UUID;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+/**
+ * 文件控制器
+ */
 @RestController
 @RequestMapping("/file")
 public class FileController {
