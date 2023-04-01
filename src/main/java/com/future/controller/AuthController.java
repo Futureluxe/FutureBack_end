@@ -1,9 +1,7 @@
 package com.future.controller;
 
-import com.future.cache.RedisTokenRepository;
 import com.future.entity.Users;
 import com.future.entity.resp.RestBean;
-import com.future.service.AuthServiceImpl;
 import com.future.service.UserService;
 import com.future.service.VerifyService;
 import com.future.util.SnowflakeIDAlgorithm;
@@ -30,13 +28,7 @@ import java.util.Random;
 public class AuthController {
 
     @Resource
-    RedisTokenRepository repository;
-
-    @Resource
     VerifyService verifyService;
-
-    @Resource
-    AuthServiceImpl authService;
 
     @Resource
     UserService userService;
@@ -113,7 +105,7 @@ public class AuthController {
             // 使用request.logout()进行退出登录验证
             request.logout();
             // 退出登录成功，使用response.sendRedirect()进行页面跳转
-            response.sendRedirect("/api/auth/logout-success");
+            response.sendRedirect("/auth/logout-success");
             return new RestBean<>(200,"Logout Success");
         } catch (ServletException e) {
             return new  RestBean<>(402,"Logout Failed");
