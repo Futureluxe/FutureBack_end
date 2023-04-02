@@ -30,6 +30,12 @@ public class FileController {
     @Resource
     private Environment environment;
 
+    /**
+     * 文件上传
+     * @param file 文件
+     * @return RestBean<String> 文件名 \n 200: 上传成功 \n 500: 上传失败
+     * @throws Exception 异常
+     */
     @RequestMapping("/upload")
     public RestBean<?> upload(MultipartFile file) throws Exception {
         // 获取文件的原始名
@@ -49,6 +55,12 @@ public class FileController {
             return new RestBean<>(200, "上传成功", newfileName);
     }
 
+    /**
+     * 文件下载
+     * @param filename 文件名
+     * @param response 响应
+     * @throws Exception 异常
+     */
     @RequestMapping("/download/{filename}")
     public void download(@PathVariable("filename") String filename, HttpServletResponse response) throws Exception {
         // 获取文件的绝对路径

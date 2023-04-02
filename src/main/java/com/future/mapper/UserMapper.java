@@ -53,4 +53,22 @@ public interface UserMapper {
     @Select("select * from users where id=#{id}")
     @ResultMap("userMap")// 使用上面的@Results
     Users findUserById(@Param("id") Integer id);
+
+    /**
+     * 通过discriminator查询用户
+     * @param discriminator 用户discriminator
+     * @return Users对象
+     */
+    @Select("select * from users where discriminator=#{discriminator}")
+    @ResultMap("userMap")// 使用上面的@Results
+    Users findUserByDiscriminator(@Param("discriminator") String discriminator);
+
+    /**
+     * 查看用户名是否重复
+     * @param username 用户名
+     * @return Users对象
+     */
+    @Select("select * from users where username=#{username}")
+    @ResultMap("userMap")// 使用上面的@Results
+    Users findUserByUsername(@Param("username") String username);
 }

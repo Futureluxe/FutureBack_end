@@ -6,7 +6,6 @@ import com.future.service.UserService;
 import com.future.service.VerifyService;
 import com.future.util.SnowflakeIDAlgorithm;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,24 +42,34 @@ public class AuthController {
     }
 
     /**
-     * 用户登录
+     * 登录
      * @param username 用户名
      * @param password 密码
-     * @return 登录结果
+     * @param request  请求
+     * @param response 响应
+     * @param mail 邮箱
+     * @param code 邮箱_验证码
+     * @return RestBean<Users> 用户信息 \n 200: 登录成功 \n 500: 登录失败
      * @throws IOException IO异常
      */
     @PostMapping("/login")
-    public RestBean<PersistentRememberMeToken> login(@RequestParam(value = "username",required = false) String username,
+    public RestBean<Users> login(@RequestParam(value = "username",required = false) String username,
                                  @RequestParam("password") String password,
                                  HttpServletRequest request,
-                                 HttpServletResponse response)
+                                 HttpServletResponse response,
+                                @RequestParam("mail") String mail,
+                                @RequestParam("code") String code
+    )
             throws IOException {
         try {
             // 使用request.login()进行登录验证
             request.login(username, password);
-            // 登录成功，使用response.sendRedirect()进行页面跳转
-            response.sendRedirect("/auth/login-success?username="+username);
-            return new RestBean<>(200,"Login Success");
+            // 获取用户名
+            Users user = userService.isNameExist(username); // 获取用户信息
+            Boolean aBoolean = verifyService.doVerify(mail, code);
+            return aBoolean ?
+                    new RestBean<>(200,"Login Success",user)
+                    : new RestBean<>(404,"Login Failed,VerifyCode Error");
         } catch (ServletException e) {
             // 登录失败，使用response.sendRedirect()进行页面跳转
             response.sendRedirect("/auth/login-failure");
@@ -70,22 +79,15 @@ public class AuthController {
     }
 
     /**
-     * 登录成功
-     * @param username 用户名{后端传输，前端不用管}
+     * 登录成功{后端传输，前端不用管}
+     * @param username 用户名
      * @return Users对象
      */
     @PostMapping("/login-success")
     public RestBean<Users> loginSuccess(
-            @RequestParam("username") String username,
-            @RequestParam("mail") String mail,
-            @RequestParam("code") String code
+            @RequestParam("username") String username
     ) {
-        // 获取用户名
-        Users user = userService.isNameExist(username); // 获取用户信息
-        Boolean aBoolean = verifyService.doVerify(mail, code);
-        return aBoolean ?
-                new RestBean<>(200,"Login Success",user)
-                : new RestBean<>(404,"Login Failed,VerifyCode Error");
+        return new RestBean<>(200,"Login Success",userService.isNameExist(username));
     }
 
     /**
@@ -125,6 +127,7 @@ public class AuthController {
      * @param email 邮箱地址
      * @return {200,邮件发送成功;500,邮件发送失败}
      */
+    @PostMapping("/verify-code")
     public RestBean<Void> verifyCode(@RequestParam("email")String email){
         try {
             verifyService.sendVerifyCode(email);

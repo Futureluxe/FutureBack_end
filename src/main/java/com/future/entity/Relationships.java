@@ -35,9 +35,13 @@ public class Relationships implements Serializable {
      */
     private Integer friendId;
     /**
-     * 好友请求状态，默认为等待中
+     * 好友请求状态，默认为等待中<br/>
+     *         0 --> 等待中<br/>
+     *         1 --> 添加成功<br/>
+     *         2 --> 删除好友<br/>
+     *         3 --> 拒绝添加<br/>
      */
-    private String status;
+    private Integer status;
     /**
      * 创建时间
      */
