@@ -1,14 +1,14 @@
 package com.future.controller;
 
+import com.future.config.WebSocketHandler.UserWebSocketHandler;
 import com.future.entity.Users;
 import com.future.entity.resp.RestBean;
 import com.future.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 用户控制器
@@ -69,5 +69,14 @@ public class UsersController {
         return nameRepeat
                 ? new RestBean<>(402,"用户名重复")
                 : new RestBean<>(200,"用户名可用");
+    }
+
+    /**
+     * 获取在线用户列表
+     * @return 在线用户列表
+     */
+    @GetMapping("/online")
+    public List<String> getOnlineUsers(){
+        return new ArrayList<>(UserWebSocketHandler.sessionMap.keySet());
     }
 }

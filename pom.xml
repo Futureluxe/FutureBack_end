@@ -60,7 +60,7 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>4.1.14</version>
+            <version>5.7.7</version>
         </dependency>
 
         <!-- JJwt -->
@@ -166,6 +166,17 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--JSON依赖（用于处理消息格式）-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!--websocket依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -216,7 +227,7 @@
                         <phase>compile</phase>
                         <goals>
                             <!--smart-doc提供了html、openapi、markdown等goal，可按需配置-->
-                            <goal>html</goal>
+                            <goal>markdown</goal>
                         </goals>
                     </execution>
                 </executions>

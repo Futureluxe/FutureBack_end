@@ -3,10 +3,11 @@ package com.future.controller;
 import com.future.entity.PrivateMessages;
 import com.future.entity.resp.RestBean;
 import com.future.service.PrivateMessagesService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.messaging.handler.annotation.Header;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
@@ -21,25 +22,31 @@ public class PrivateMessagesController {
     @Resource
     private PrivateMessagesService privateMessagesService;
 
+    @Resource
+    private SimpMessagingTemplate messagingTemplate;
+
+    public PrivateMessagesController(SimpMessagingTemplate messagingTemplate) {
+        this.messagingTemplate = messagingTemplate;
+    }
+
     /**
      * 发送私信
-     * @param content 内容
-     * @param userId 发送者id
-     * @param receptionId 接收者id
-     * @param createdAt 创建时间
+     * @param message 消息体
+     * @param sender 发送者id
+     * @param receiver 接收者id
+     * @return 返回发送结果
      */
-    @PostMapping("/sendPrivateMessages")
+    @MessageMapping("/private_chat") //接收消息
     public RestBean<String> sendPrivateMessages(
-            @RequestParam("content") String content,
-            @RequestParam("author_id") Integer userId,
-            @RequestParam("reception_id") Integer receptionId,
-            @RequestParam("created_at") Timestamp createdAt
+            @Payload String message, //消息体
+            @Header("author_id") String sender, //消息头
+            @Header("reception_id") String receiver //消息头
     ) {
         Boolean aBoolean = privateMessagesService.sendMessage(new PrivateMessages()
-                .setContent(content)
-                .setAuthorId(userId)
-                .setReceptionId(receptionId)
-                .setCreatedAt(createdAt)
+                .setContent(message)
+                .setAuthorId(Integer.valueOf(sender))
+                .setReceptionId(Integer.valueOf(receiver))
+                .setCreatedAt(new Timestamp(System.currentTimeMillis()))
         );
         return aBoolean ?
                 new RestBean<>(200, "发送成功")
@@ -59,5 +66,16 @@ public class PrivateMessagesController {
         return allMessagesForUser != null ?
                 new RestBean<>(200, "查询成功", allMessagesForUser)
                 : new RestBean<>(500, "查询失败");
+    }
+
+    /**
+     * 获取用户的所有私信
+     * @param sender 发送者id
+     * @param receiver 接收者id
+     * @return 返回查询结果
+     */
+    @GetMapping("/history")
+    public List<PrivateMessages> getHistoryMessage(String sender,String receiver){
+        return privateMessagesService.getHistoryMessage(Integer.valueOf(sender),Integer.valueOf(receiver));
     }
 }

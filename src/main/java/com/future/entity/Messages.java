@@ -1,5 +1,6 @@
 package com.future.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.experimental.Accessors;
 import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * 消息表
@@ -31,10 +31,12 @@ public class Messages implements Serializable {
     /**
      * 消息内容
      */
+    @JsonProperty("content") // 用于序列化和反序列化
     private String content;
     /**
      * 消息发送者ID，外键关联用户表
      */
+    @JsonProperty("author")
     private Integer authorId;
     /**
      * 消息所属频道ID，外键关联频道表

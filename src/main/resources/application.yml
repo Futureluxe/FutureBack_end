@@ -18,7 +18,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/future?characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: 123456
+    password: ysp750421
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   servlet:
